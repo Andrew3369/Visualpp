@@ -21,16 +21,19 @@ namespace Visual__
     public partial class MainWindow : Window
     {
 
-        private bool isSaved = false;
+        //private bool isSaved = false;
+        //private readonly string OriginalText;
+
         public MainWindow()
         {
             InitializeComponent();
-            TextBox.Text =
+            textBox.Text =
                 "Welcome to Visual++ !\n" +
                 "The new general text editor and IDE!\n" +
                 "Everything you need to get started is above!";
-            DocumentName.Text = "Untitled";
-        }
+            fileName.Text = "Untitled Document";
+            //OriginalText = "";
+    }
 
         private void OnClick(object sender, RoutedEventArgs e)
         {
@@ -39,15 +42,22 @@ namespace Visual__
 
         private void IsSaved(object sender, TextChangedEventArgs e)
         {
-            isSaved = false;
-            if (DocumentName.Text == "Untitled")
-            {
-                DocumentName.Text = "Untitled*";
-            }
-            else
-            {
-                DocumentName.Text += "*";
-            }
+
+        }
+
+        /*
+         * FUNCTION    : DocumentName_TextChanged
+         *
+         * DESCRIPTION : 
+         *
+         * PARAMETERS  : object sender, RoutedEventArgs e
+         *
+         * RETURNS     : void
+         */
+        private void DocumentName_TextChanged
+            (object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

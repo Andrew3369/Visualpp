@@ -6,11 +6,12 @@
         xmlns:local="clr-namespace:Visual__"
         mc:Ignorable="d"
         Title="Visual++" Height="450" Width="800">
-    <Grid x:Name="MainGrid">
-        <!-- Top Left Options Available -->
-        <Viewbox>
+    <Grid>
+        <!-- Visual++ Options -->
+        <Viewbox StretchDirection="Both" Stretch="Uniform">
             <Menu x:Name="OptionsMenu" Height="18" Margin="0,0,647,402">
-                <!-- Menu Options -->
+
+                <!--Menu Options-->
                 <MenuItem Header="File" Height="18">
                     <MenuItem Header="New Ctrl+N"/>
                     <MenuItem Header="Open Ctrl+O"/>
@@ -18,45 +19,52 @@
                     <MenuItem Header="Save As Ctrl+Shift+S"/>
                     <MenuItem Header="Exit"/>
                 </MenuItem>
-                <!-- Editting Tools -->
+
+                <!--Editting Tools-->
                 <MenuItem Header="Edit">
                     <MenuItem Header="Cut Ctrl+X" Command="ApplicationCommands.Cut"
-                            CommandTarget="{Binding ElementName=TextBox}"/>
+                        CommandTarget="{Binding ElementName=TextBox}"/>
                     <MenuItem Header="Copy Ctrl+C" 
-                            Command="ApplicationCommands.Copy"
-                            CommandTarget="{Binding ElementName=TextBox}"/>
+                        Command="ApplicationCommands.Copy"
+                        CommandTarget="{Binding ElementName=TextBox}"/>
                     <MenuItem Header="Paste Ctrl+V"
-                            Command="ApplicationCommands.Paste"
-                            CommandTarget="{Binding ElementName=TextBox}"/>
+                        Command="ApplicationCommands.Paste"
+                        CommandTarget="{Binding ElementName=TextBox}"/>
                 </MenuItem>
-                
-                <!-- Format Options -->
+
+                <!--Format Options-->
                 <MenuItem Header="Format">
                     <MenuItem Header="Font"/>
                     <MenuItem Header="Color"/>
                 </MenuItem>
-                <!-- Help Options -->
+
+                <!--Help Options-->
                 <MenuItem Header="Help">
                     <MenuItem Header="About"/>
                 </MenuItem>
             </Menu>
         </Viewbox>
 
+        <!-- TextBox Input -->
+        <Viewbox StretchDirection="Both" Stretch="Uniform">
+            <TextBox x:Name="textBox" 
+                     Height="450" 
+                     Width="1000" 
+                     Margin="0,0,0,0" 
+                     FontSize="16" 
+                     FontFamily="Arial"/>
+        </Viewbox>
 
-        <!-- Document Name Viewbox -->
+        <!-- Document Name Textbox -->
         <Viewbox>
-            <Menu x:Name="DocumentFile" Height="20" Margin="200,-74,647,402">
-                <TextBlock x:Name="DocumentName" HorizontalAlignment="Center" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Center" Width="90" Height="20"/>
+            <Menu x:Name="DocumentName" Margin="325,8,390,408" IsEnabled="False" FontWeight="Bold" >
+                <TextBox x:Name="fileName" 
+                     Width="Auto" 
+                     IsEnabled="False" 
+                     Height="18" 
+                     TextChanged="DocumentName_TextChanged">
+                </TextBox>
             </Menu>
         </Viewbox>
-
-        <Viewbox>
-            <TextBox x:Name="TextBox" Height="300" TextWrapping="Wrap" 
-                     Text="TextBox" VerticalAlignment="Center" 
-                     ScrollViewer.CanContentScroll="True" 
-                     Grid.ColumnSpan="3" 
-                     Width="700"/>
-        </Viewbox>
-
     </Grid>
 </Window>

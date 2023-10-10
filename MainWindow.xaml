@@ -1,0 +1,62 @@
+﻿<Window x:Class="Visual__.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Visual__"
+        mc:Ignorable="d"
+        Title="Visual++" Height="450" Width="800">
+    <Grid x:Name="MainGrid">
+        <!-- Top Left Options Available -->
+        <Viewbox>
+            <Menu x:Name="OptionsMenu" Height="18" Margin="0,0,647,402">
+                <!-- Menu Options -->
+                <MenuItem Header="File" Height="18">
+                    <MenuItem Header="New Ctrl+N"/>
+                    <MenuItem Header="Open Ctrl+O"/>
+                    <MenuItem Header="Save Ctrl+S"/>
+                    <MenuItem Header="Save As Ctrl+Shift+S"/>
+                    <MenuItem Header="Exit"/>
+                </MenuItem>
+                <!-- Editting Tools -->
+                <MenuItem Header="Edit">
+                    <MenuItem Header="Cut Ctrl+X" Command="ApplicationCommands.Cut"
+                            CommandTarget="{Binding ElementName=TextBox}"/>
+                    <MenuItem Header="Copy Ctrl+C" 
+                            Command="ApplicationCommands.Copy"
+                            CommandTarget="{Binding ElementName=TextBox}"/>
+                    <MenuItem Header="Paste Ctrl+V"
+                            Command="ApplicationCommands.Paste"
+                            CommandTarget="{Binding ElementName=TextBox}"/>
+                </MenuItem>
+                
+                <!-- Format Options -->
+                <MenuItem Header="Format">
+                    <MenuItem Header="Font"/>
+                    <MenuItem Header="Color"/>
+                </MenuItem>
+                <!-- Help Options -->
+                <MenuItem Header="Help">
+                    <MenuItem Header="About"/>
+                </MenuItem>
+            </Menu>
+        </Viewbox>
+
+
+        <!-- Document Name Viewbox -->
+        <Viewbox>
+            <Menu x:Name="DocumentFile" Height="20" Margin="200,-74,647,402">
+                <TextBlock x:Name="DocumentName" HorizontalAlignment="Center" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Center" Width="90" Height="20"/>
+            </Menu>
+        </Viewbox>
+
+        <Viewbox>
+            <TextBox x:Name="TextBox" Height="300" TextWrapping="Wrap" 
+                     Text="TextBox" VerticalAlignment="Center" 
+                     ScrollViewer.CanContentScroll="True" 
+                     Grid.ColumnSpan="3" 
+                     Width="700"/>
+        </Viewbox>
+
+    </Grid>
+</Window>
